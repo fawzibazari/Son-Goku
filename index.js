@@ -22,9 +22,9 @@ function optimalPosition(foods, dists) {
     const food = foods[index];
     const dist = dists[index];
     console.log({ food1: food });
-    for (let j = index; j <= foods.length; j++) {
+    for (let j = 0; j < dists.length; j++) {
       if (j < n) {
-        const element = foods[j];
+        const element = foods[index];
         const element2 = dists[j];
         console.log(
           `${final_res ?? element} - ${element2 ?? dists[0]} + ${
@@ -33,7 +33,8 @@ function optimalPosition(foods, dists) {
         );
         final_res =
           (final_res ?? element) - (element2 ?? dists[0]) + (foods[j + 1] ?? 0);
-        console.log(final_res);
+          console.log(final_res);
+        
       }
     }
     //     final_res += food - dist + (foods[index + 1] ?? foods[1])
