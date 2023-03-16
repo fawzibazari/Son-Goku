@@ -7,10 +7,10 @@
  *  2. INTEGER_ARRAY dist
  */
 
-// const food = [2, 4, 5, 2];
-// const dist = [4, 3, 1, 3];
-const food = [3, 2, 5, 4];
-const dist = [2, 3, 4, 2];
+const food = [2, 4, 5, 2];
+const dist = [4, 3, 1, 3];
+// const food = [3, 2, 5, 4];
+// const dist = [2, 3, 4, 2];
 
 function optimalPosition(foods, dists) {
   const n = foods.length;
@@ -22,7 +22,7 @@ function optimalPosition(foods, dists) {
     const food = foods[index];
     const dist = dists[index];
     console.log({ food1: food });
-    for (let j = 0; j < dists.length; j++) {
+    for (let j = 0; j < food; j++) {
       if (j < n) {
         const element = foods[index];
         const element2 = dists[j];
