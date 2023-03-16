@@ -9,8 +9,6 @@
 
 const food = [2, 4, 5, 2];
 const dist = [4, 3, 1, 3];
-// const food = [3, 2, 5, 4];
-// const dist = [2, 3, 4, 2];
 
 function optimalPosition(foods, dists) {
   const n = foods.length;
@@ -21,30 +19,25 @@ function optimalPosition(foods, dists) {
     let final_res = null;
     const food = foods[index];
     const dist = dists[index];
-    console.log({ food1: food });
-    for (let j = 0; j < food; j++) {
-      if (j < n) {
-        const element = foods[index];
-        const element2 = dists[j];
-        console.log(
-          `${final_res ?? element} - ${element2 ?? dists[0]} + ${
-            foods[j + 1] ?? 0
-          }`
-        );
-        final_res =
-          (final_res ?? element) - (element2 ?? dists[0]) + (foods[j + 1] ?? 0);
-          console.log(final_res);
-        
-      }
+    console.log({ food: food });
+    const newArray = index == 0 ? dists : arraySwitcher(dists);
+    for (let j = 0; j < newArray.length; j++) {
+      console.log(foods[j]);
+      const element = foods[index];
+      const element2 = dists[j];
+      // console.log(
+      //   `${final_res ?? element} - ${element2 ?? dists[0]} + ${
+      //     foods[j + 1] ?? 0
+      //   }`
+      // );
+      final_res =
+        (final_res ?? element) - (element2 ?? dists[0]) + (foods[j + 1] ?? 0);
     }
-    //     final_res += food - dist + (foods[index + 1] ?? foods[1])
-    //     console.log(final_res);
-    // console.log(index);
-    // final_res += (final_res != 0 ? final_res : num1) - num2 + (food[index + 1] ?? 0);
-    // console.log(final_res);
   }
-  //    res += food[1] - dist[1] + food[2]
-  //    console.log(res);
 }
 
+function arraySwitcher(array) {
+  array.push(array.shift(array));
+  return array;
+}
 optimalPosition(food, dist);
